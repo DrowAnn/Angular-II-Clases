@@ -1,8 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   signal,
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 
 @Component({
@@ -13,10 +14,15 @@ import {
   styleUrl: './signal-ejemplo2.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class SignalEjemplo2Component {
-  contador: number = 0;
+export default class SignalEjemplo2Component implements OnDestroy, OnInit {
+  contador = signal(0);
+  contador2 = signal(1);
 
-  constructor() {
-    setInterval(() => (this.contador = this.contador + 1), 1000);
+  ngOnInit() {
+    setInterval(() => this.contador.update((contador) => contador + 1), 1000);
+  }
+
+  ngOnDestroy() {
+    this.contador = signal(0);
   }
 }

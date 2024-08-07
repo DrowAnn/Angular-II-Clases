@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <span class="app-logo">Angular Signals</span>
+
+  <span class="example-spacer"></span>
+
+  <button mat-button [routerLink]="['/']" routerLinkActive="active">
+    Home
+  </button>
+
+  <button
+    mat-button
+    [routerLink]="['/signal-ejemplo1']"
+    routerLinkActive="active"
+  >
+    signal-ejemplo1
+  </button>
+
+  <button
+    mat-button
+    [routerLink]="['/signal-ejemplo2']"
+    routerLinkActive="active"
+  >
+    signal-ejemplo2
+  </button>
+
+  <span class="menu-spacer"></span>
+
+  <a
+    mat-icon-button
+    target="_blank"
+    aria-label="Github Repo link"
+    href="https://github.com/DrowAnn/Angular-II-Clases"
+  >
+    <img src="/images/logo.svg" />
+  </a>
+</mat-toolbar>

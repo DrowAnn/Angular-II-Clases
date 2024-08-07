@@ -9,7 +9,11 @@ const ROUTES: Route[] = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'signal-ejemplo1',
+        redirectTo: 'home',
+      },
+      {
+        path: 'home',
+        loadComponent: () => import('./home/home.component'),
       },
       {
         path: 'signal-ejemplo1',
