@@ -1,0 +1,20 @@
+<p>signal-ejemplo5 works!</p>
+
+<h1>Ejemplo 5 - Señales con Arreglos</h1>
+
+<mat-form-field>
+  <mat-label>Nombre de la Tarea</mat-label>
+  <input matInput name="toDo" #toDo />
+</mat-form-field>
+<br />
+<button mat-raised-button color="primary" (click)="addToDo(toDo)">
+  Agregar Tarea
+</button>
+
+<ul>
+  @for (toDoTask of toDos(); track toDoTask) {
+  <li>
+    {{ toDoTask }}
+  </li>
+  }
+</ul>
