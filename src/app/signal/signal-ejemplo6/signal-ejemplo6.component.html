@@ -1,6 +1,9 @@
 <p>signal-ejemplo6 works!</p>
 <h1>Ejemplo 6 - Observables a Señales</h1>
 
-<!--p>Contador Simple -> {{ counter() }}</p>
-<p>Contador con Valor Inicial -> {{ counterConValorInicial() }}</p-->
-<p>Contador hasta 5 -> {{ counterUpTo5() }}</p>
+<p>Contador Simple -> {{ counter != 0 ? counter() : 0 }}</p>
+<p>
+  Contador con Valor Inicial ->
+  {{ counterConValorInicial != 0 ? counterConValorInicial() : 0 }}
+</p>
+<p>Contador hasta 5 -> {{ counterUpTo5 != 0 ? counterUpTo5() : 0 }}</p>

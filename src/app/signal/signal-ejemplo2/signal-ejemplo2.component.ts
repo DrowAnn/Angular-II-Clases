@@ -2,8 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   signal,
-  OnDestroy,
-  OnInit,
+  NgZone,
 } from '@angular/core';
 
 @Component({
@@ -16,13 +15,15 @@ import {
 })
 export default class SignalEjemplo2Component {
   contador = signal(0);
-  contador2 = signal(1);
+  constructor(private ngZone: NgZone) {}
 
-  //   ngOnInit() {
-  //     setInterval(() => this.contador.update((contador) => contador + 1), 1000);
-  //   }
-
-  //   ngOnDestroy() {
-  //     this.contador = signal(0);
-  //   }
+  ngOnInit(): void {
+    this.ngZone.runOutsideAngular(() => {
+      setInterval(() => {
+        this.ngZone.run(() => {
+          this.contador.update((count) => count + 1);
+        });
+      }, 1000);
+    });
+  }
 }
