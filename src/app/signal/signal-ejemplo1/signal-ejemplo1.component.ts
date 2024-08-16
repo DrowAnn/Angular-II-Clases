@@ -11,14 +11,14 @@ import { MatButtonModule } from '@angular/material/button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class SignalEjemplo1Component {
-  nombre = 'Robert';
-  contador = signal<number>(0);
+  name = 'Robert';
+  counter = signal<number>(0);
 
-  incrementarContador() {
-    this.contador.update((contador) => contador + 1);
+  increaseCounter() {
+    this.counter.update((counter) => counter + 1);
   }
 
-  decrementarContador() {
-    this.contador.update((contador) => contador - 1);
+  decreaseCounter() {
+    this.counter.update((counter) => counter - 1);
   }
 }

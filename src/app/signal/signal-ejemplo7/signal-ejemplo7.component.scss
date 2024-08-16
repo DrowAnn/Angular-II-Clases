@@ -11,9 +11,14 @@ ul {
 }
 
 .div1 {
-  width: 45vw;
+  width: 50vw;
+}
+
+.div1 li {
+  display: flex;
+  flex-direction: row;
 }
 
 .div2 {
-  width: 45vw;
+  width: 40vw;
 }

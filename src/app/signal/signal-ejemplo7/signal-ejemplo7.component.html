@@ -1,37 +1,35 @@
-<p>signal-ejemplo7 works!</p>
-
-<h1>Ejemplo 7 - Shopping Cart</h1>
+<h2>Example 7 - Shopping Cart</h2>
 
 <div class="two-columns">
   <div class="div1">
     <ul>
       @for (product of products(); track product) {
       <li>
-        {{ product.name }} - {{ product.price }}
+        <p style="width: 14vw">{{ product.name }} - ${{ product.price }}</p>
+
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="addToCart(product)"
+          style="margin-right: 1rem"
+        >
+          +1
+        </button>
+
         @if (selectProductsIds().includes(product.id)) {
         <button
           mat-raised-button
-          color="primary"
-          (click)="addToCart(product)"
-          style="margin-right: 1rem; margin-left: 2rem"
+          style="color: red"
+          (click)="removeOneFromCart(product)"
         >
-          Add
+          -1
         </button>
         <button
           mat-raised-button
-          color="warn"
-          (click)="removeFromCart(product)"
+          style="margin-left: 1.5rem; color: red"
+          (click)="removeAllFromCart(product)"
         >
-          Remove
-        </button>
-        } @else {
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="addToCart(product)"
-          style="margin-left: 2rem"
-        >
-          Add
+          Remove All
         </button>
         }
       </li>
@@ -52,9 +50,9 @@
         Product name: {{ product.name }}
         <ul>
           <li>Id product: {{ product.id }}</li>
-          <li>Unit price: {{ product.price }}</li>
+          <li>Unit price: ${{ product.price }}</li>
           <li>Total added: {{ product.quantity }}</li>
-          <li>Total price: {{ product.quantity * product.price }}</li>
+          <li>Total price: ${{ product.quantity * product.price }}</li>
         </ul>
       </li>
       }

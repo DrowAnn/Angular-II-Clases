@@ -52,41 +52,39 @@ export default class SignalEjemplo7Component {
     });
   }
 
-  removeFromCart(product: Product) {
+  removeOneFromCart(product: Product) {
     this.cart.update((products) => {
-      //return products.filter((productInCart) => productInCart.id != product.id);
-      console.log(products.findIndex((p) => p == product));
-      console.log(products);
-      return products.splice(
-        products.findIndex((p) => p.id == product.id),
-        1
+      for (let i = products.length - 1; i >= 0; i--) {
+        if (products[i].id == product.id) {
+          products.splice(i, 1);
+          break;
+        }
+      }
+      return [...products];
+    });
+  }
+
+  removeAllFromCart(product: Product) {
+    this.cart.update((productsInCart) => {
+      return productsInCart.filter(
+        (oneProductInCart) => oneProductInCart.id != product.id
       );
     });
   }
 
   totalProductsList = computed(() => {
     let countingOfEachProduct: Product[] = [];
-
     this.cart().map((productInCart) => {
-      let count: number = 0;
-      if (countingOfEachProduct) {
-        for (let i = 0; i < countingOfEachProduct.length; i++) {
-          if (countingOfEachProduct[i].id == productInCart.id) {
-            countingOfEachProduct[i].quantity += 1;
-            break;
-          } else {
-            count++;
-          }
-        }
-        if (count == countingOfEachProduct.length) {
-          productInCart.quantity = 1;
-          countingOfEachProduct = [...countingOfEachProduct, productInCart];
-        }
+      if (countingOfEachProduct.includes(productInCart)) {
+        countingOfEachProduct[
+          countingOfEachProduct.indexOf(productInCart)
+        ].quantity += 1;
       } else {
         productInCart.quantity = 1;
-        countingOfEachProduct = [...countingOfEachProduct, productInCart];
+        countingOfEachProduct.push(productInCart);
       }
     });
+
     return countingOfEachProduct;
   });
 }

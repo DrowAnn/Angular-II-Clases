@@ -1,12 +1,13 @@
-<p>signal-ejemplo3 works!</p>
-
-<h2>Ejemplo 3 - Actualizando un nombre usando el input</h2>
+<h2>Example 3 - Update a name using an input</h2>
 
 <div>
   <mat-form-field>
-    <mat-label> Ingrese su nombre</mat-label>
+    <mat-label>Write your name:</mat-label>
     <input matInput #myName (input)="updateName(myName.value)" />
   </mat-form-field>
 
-  Mi nombre es: {{ nombre() }}
+  <h6>
+    My name is:
+    <span style="color: rgb(204, 0, 0); font-weight: 800">{{ name() }}</span>
+  </h6>
 </div>

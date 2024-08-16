@@ -21,7 +21,11 @@ export default class SignalEjemplo4Component {
 
   doubleCount = computed(() => this.count() + 2);
 
-  incrementar() {
+  increase() {
     this.count.update(() => this.count() + 1);
+  }
+
+  decrease() {
+    this.count.update(() => this.count() - 1);
   }
 }

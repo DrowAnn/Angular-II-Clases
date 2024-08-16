@@ -12,7 +12,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export default class SignalEjemplo6Component {
   counter: any;
-  counterConValorInicial: any;
+  counterWithInitialValue: any;
   counterUpTo5: any;
 
   constructor(private ngZone: NgZone) {
@@ -22,7 +22,7 @@ export default class SignalEjemplo6Component {
 
     this.ngZone.runOutsideAngular(() => {
       this.counter = toSignal(counter$);
-      this.counterConValorInicial = toSignal(counter2$, { initialValue: 5 });
+      this.counterWithInitialValue = toSignal(counter2$, { initialValue: 5 });
       this.counterUpTo5 = toSignal(counter3$);
     });
   }

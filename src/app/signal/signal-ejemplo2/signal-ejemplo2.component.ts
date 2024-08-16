@@ -14,16 +14,16 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class SignalEjemplo2Component {
-  contador = signal(0);
+  counter = signal(0);
   constructor(private ngZone: NgZone) {}
 
   ngOnInit(): void {
     this.ngZone.runOutsideAngular(() => {
       setInterval(() => {
         this.ngZone.run(() => {
-          this.contador.update((count) => count + 1);
+          this.counter.update((count) => count + 1);
         });
-      }, 1000);
+      }, 800);
     });
   }
 }
