@@ -1,0 +1,63 @@
+<p>signal-ejemplo7 works!</p>
+
+<h1>Ejemplo 7 - Shopping Cart</h1>
+
+<div class="two-columns">
+  <div class="div1">
+    <ul>
+      @for (product of products(); track product) {
+      <li>
+        {{ product.name }} - {{ product.price }}
+        @if (selectProductsIds().includes(product.id)) {
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="addToCart(product)"
+          style="margin-right: 1rem; margin-left: 2rem"
+        >
+          Add
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="removeFromCart(product)"
+        >
+          Remove
+        </button>
+        } @else {
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="addToCart(product)"
+          style="margin-left: 2rem"
+        >
+          Add
+        </button>
+        }
+      </li>
+      }
+    </ul>
+
+    <p>
+      Total Price: <b>{{ totalPrice() }}</b>
+    </p>
+  </div>
+
+  <div class="div2">
+    <h3>Products List</h3>
+    <p>Add more than one unit of each product</p>
+    <ul>
+      @for (product of totalProductsList(); track product) {
+      <li>
+        Product name: {{ product.name }}
+        <ul>
+          <li>Id product: {{ product.id }}</li>
+          <li>Unit price: {{ product.price }}</li>
+          <li>Total added: {{ product.quantity }}</li>
+          <li>Total price: {{ product.quantity * product.price }}</li>
+        </ul>
+      </li>
+      }
+    </ul>
+  </div>
+</div>

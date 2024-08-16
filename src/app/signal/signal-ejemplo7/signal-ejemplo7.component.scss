@@ -1,0 +1,19 @@
+ul {
+  li {
+    padding: 10px;
+  }
+}
+
+.two-columns {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+}
+
+.div1 {
+  width: 45vw;
+}
+
+.div2 {
+  width: 45vw;
+}
