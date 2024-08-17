@@ -5,13 +5,15 @@
     <ul>
       @for (product of products(); track product) {
       <li>
-        <p style="width: 14vw">{{ product.name }} - ${{ product.price }}</p>
+        <p style="width: 9.5rem; margin: 0; align-self: center">
+          {{ product.name }} - ${{ product.price }}
+        </p>
 
         <button
           mat-raised-button
           color="primary"
           (click)="addToCart(product)"
-          style="margin-right: 1rem"
+          style="margin-right: 1rem; margin-left: 1rem"
         >
           +1
         </button>
